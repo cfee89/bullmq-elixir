@@ -1469,7 +1469,7 @@ defmodule BullMQ.Scripts do
 
     args = [
       # ARGV[1] prefix:queueName
-      Keys.key_prefix(ctx),
+      Keys.key(ctx),
       # ARGV[2] job id
       job_id,
       # ARGV[3] push type
@@ -1520,7 +1520,7 @@ defmodule BullMQ.Scripts do
 
     args = [
       # ARGV[1] prefix:queueName
-      Keys.key_prefix(ctx),
+      Keys.key(ctx),
       # ARGV[2] include delayed
       if(delayed?, do: 1, else: 0)
     ]
@@ -1661,7 +1661,7 @@ defmodule BullMQ.Scripts do
 
     args = [
       # ARGV[1] prefix:queueName
-      Keys.key_prefix(ctx),
+      Keys.key(ctx),
       # ARGV[2] job id
       job_id
     ]
