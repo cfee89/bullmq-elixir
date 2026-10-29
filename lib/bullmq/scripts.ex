@@ -1390,7 +1390,7 @@ defmodule BullMQ.Scripts do
 
     # Pack job_ids and tokens using msgpack for the Lua script
     args = [
-      Keys.key(ctx),
+      Keys.key_prefix(ctx),
       Msgpax.pack!(tokens, iodata: false),
       Msgpax.pack!(job_ids, iodata: false),
       duration
@@ -1469,7 +1469,7 @@ defmodule BullMQ.Scripts do
 
     args = [
       # ARGV[1] prefix:queueName
-      Keys.key(ctx),
+      Keys.key_prefix(ctx),
       # ARGV[2] job id
       job_id,
       # ARGV[3] push type
@@ -1520,7 +1520,7 @@ defmodule BullMQ.Scripts do
 
     args = [
       # ARGV[1] prefix:queueName
-      Keys.key(ctx),
+      Keys.key_prefix(ctx),
       # ARGV[2] include delayed
       if(delayed?, do: 1, else: 0)
     ]
@@ -1661,7 +1661,7 @@ defmodule BullMQ.Scripts do
 
     args = [
       # ARGV[1] prefix:queueName
-      Keys.key(ctx),
+      Keys.key_prefix(ctx),
       # ARGV[2] job id
       job_id
     ]
